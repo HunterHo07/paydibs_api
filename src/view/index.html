@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Payment Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+      }
+      .payment-form {
+        margin: 50px auto;
+        width: 300px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      .payment-form input[type="text"],
+      .payment-form input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+      }
+      .payment-form input[type="submit"] {
+        width: 100%;
+        background-color: #0074cc;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="payment-form">
+      <!-- <form name="frmTestPay" method="post" action="https://dev.paydibs.com/PPGSG/PymtCheckout.aspx"> -->
+      <form name="frmTestPay" method="post" action="http://localhost:8002/pay">
+        <input type="text" name="TxnType" value="PAY" />
+        <input type="text" name="MerchantID" value="TEST" />
+        <input type="text" name="MerchantPymtID" value="Testh002" />
+        <input type="text" name="MerchantOrdID" value="Order_002" />
+        <input type="text" name="MerchantOrdDesc" value="Payment for abc" />
+        <input type="number" step="00.01" name="MerchantTxnAmt" value="12.99" />
+        <input type="text" name="MerchantCurrCode" value="MYR" />
+        <input type="text" name="MerchantRURL" value="https://MerchantTestEnv.com/response.aspx" readonly />
+        <input type="text" name="CustIP" value="123.123.123.10" />
+        <input type="text" name="CustName" value="Test" />
+        <input type="text" name="CustEmail" value="test@testmail.com" />
+        <input type="text" name="CustPhone" value="60123334567" />
+        <!-- Include a hidden input field for the "Sign" field -->
+        <input type="hidden" name="Sign" id="Sign" value="" readonly />
+        <input type="hidden" name="PageTimeout" value="" readonly />
+        <input type="text" name="MerchantCallbackURL" value="http://MerchantTestEnv.com/callbackresponse.aspx" readonly />
+        <input type="submit" value="Pay Now" />
+      </form>
+    </div>
+  </body>
+</html>
